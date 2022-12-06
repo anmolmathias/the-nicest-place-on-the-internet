@@ -114,6 +114,7 @@ select {
 
 .controls {
   cursor: pointer;
+  display: flex;
 }
 
 .overlay {
@@ -168,4 +169,13 @@ select {
 
 .links-list {
     list-style: none;
+}
+
+.share {
+    display:flex;
+}
+
+.enter {
+    all: unset;
+    cursor: pointer;
 }

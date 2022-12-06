@@ -1,5 +1,6 @@
 let pageReady = false;
-let isPaused = true;
+let isMuted = true;
+let isShuffled = false;
 const audioElement = new Audio("audio.mp3");
 var aboutOverlay = document.querySelector(".about-overlay");
 var giveOverlay = document.querySelector(".give-overlay");
@@ -30,32 +31,39 @@ function rewindOnPlaylist() {
 }
 function playOrPause() {
   if (player.getPlayerState() === 1) {
+    document.querySelector(".play-image").src = "assets/images/pause.png";
     player.pauseVideo();
   } else {
+    document.querySelector(".play-image").src = "assets/images/play.png";
     player.playVideo();
   }
 }
 function nextOnPlayList() {
   player.nextVideo();
 }
-var isShuffled = false;
+
 function shuffleOnPlaylist() {
   if (isShuffled) {
+    document.querySelector(".shuffle-image").src = "assets/images/continue.png";
     player.setShuffle(false);
   } else {
+    document.querySelector(".shuffle-image").src = "assets/images/shuffle.png";
     player.setShuffle(true);
   }
   isShuffled = !isShuffled;
 }
 
 function muteAudio() {
-  if (isPaused) {
+  if (isMuted) {
+    document.querySelector(".mute-image").src = "assets/images/unmute.png";
     audioElement.play();
   } else {
+    document.querySelector(".mute-image").src = "assets/images/mute.png";
     audioElement.pause();
   }
-  isPaused = !isPaused;
+  isMuted = !isMuted;
 }
+
  audioElement.loop = true;
 document.querySelector(".enter").addEventListener("click", function () {
   document.querySelector(".onLoad-overlay").style.display = "none";
