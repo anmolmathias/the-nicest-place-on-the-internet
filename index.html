@@ -11,27 +11,95 @@
     <div class="page-wrapper">
       <iframe
         class="player"
-        src="https://www.youtube.com/embed/videoseries?controls=0&list=PLUWjLblS8gxH8q1xMC4GmfFU83gK7yd07&autoplay=1&mute=1&playsinline=1&modestbranding=1"
+        id="player"
+        src="https://www.youtube.com/embed/videoseries?controls=0&list=PLUWjLblS8gxH8q1xMC4GmfFU83gK7yd07&autoplay=1&rel=0&mute=1&playsinline=1&modestbranding=1&enablejsapi=1"
       ></iframe>
       <div class="navigation-wrapper">
         <nav class="logo-wrapper">
-            <div class="logo">logo</div>
-            <h1>A Nice Place on the Internet</h1>
+          <div class="logo">logo</div>
+          <h1>A Nice Place on the Internet</h1>
         </nav>
         <footer>
-            <div class="links">
-                <ul>
-                    <li>about</li>
-                    <li>give a hug</li>
-                    <li>contact</li>
-                </ul>
-            </div>
-            <div class="controls">Controls</div>
+          <div class="links">
+            <ul>
+              <li>about</li>
+              <li>give a hug</li>
+              <li>contact</li>
+            </ul>
+          </div>
+          <div class="controls">
+            <p class="rewind">rewind</p>
+            <p class="play">play/pause</p>
+            <p class="next">next</p>
+            <p class="shuffle">shuffle</p>
+          </div>
         </footer>
+      </div>
+      <div class="share">
+        <a href="#">Twitter</a>
+        <a href="#">Facebook</a>
+      </div>
     </div>
-    <div class="share">
-      <a href="#">Twitter</a>
-      <a href="#">Facebook</a>
-    </div>
+    <script type="text/javascript">
+      var tag = document.createElement("script");
+      tag.id = "iframe-demo";
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          events: {
+            onReady: onPlayerReady,
+            onError: onPlayerError
+          },
+        });
+      }
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      function onPlayerError(event) {
+        console.log(event.target.data);
+      }
+
+      function rewindOnPlaylist() {
+        player.previousVideo();
+      }
+
+      function playOrPause() {
+        if (player.getPlayerState() === 1) {
+            player.pauseVideo();
+        } else {
+            player.playVideo();
+        }
+      }
+
+      function nextOnPlayList() {
+        player.nextVideo();
+      }
+
+      var isShuffled = false;
+      function shuffleOnPlaylist() {
+        if (isShuffled) {
+            player.setShuffle(false);
+
+        } else {
+            player.setShuffle(true);
+        }
+        isShuffled = !isShuffled;
+      }
+
+      var rewind = document.querySelector(".rewind");
+      var play = document.querySelector(".play");
+      var next = document.querySelector(".next");
+      var shuffle = document.querySelector(".shuffle");
+
+      rewind.addEventListener("click", rewindOnPlaylist);
+      play.addEventListener("click", playOrPause);
+      next.addEventListener("click", nextOnPlayList);
+      shuffle.addEventListener("click", shuffleOnPlaylist);
+    </script>
   </body>
 </html>
