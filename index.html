@@ -52,54 +52,43 @@
         player = new YT.Player("player", {
           events: {
             onReady: onPlayerReady,
-            onError: onPlayerError
+            onError: onPlayerError,
           },
         });
       }
       function onPlayerReady(event) {
         event.target.playVideo();
       }
-
       function onPlayerError(event) {
         console.log(event.target.data);
       }
-
       function rewindOnPlaylist() {
         player.previousVideo();
       }
-
       function playOrPause() {
         if (player.getPlayerState() === 1) {
-            player.pauseVideo();
+          player.pauseVideo();
         } else {
-            player.playVideo();
+          player.playVideo();
         }
       }
-
       function nextOnPlayList() {
         player.nextVideo();
       }
-
       var isShuffled = false;
       function shuffleOnPlaylist() {
         if (isShuffled) {
-            player.setShuffle(false);
-
+          player.setShuffle(false);
         } else {
-            player.setShuffle(true);
+          player.setShuffle(true);
         }
         isShuffled = !isShuffled;
       }
 
-      var rewind = document.querySelector(".rewind");
-      var play = document.querySelector(".play");
-      var next = document.querySelector(".next");
-      var shuffle = document.querySelector(".shuffle");
-
-      rewind.addEventListener("click", rewindOnPlaylist);
-      play.addEventListener("click", playOrPause);
-      next.addEventListener("click", nextOnPlayList);
-      shuffle.addEventListener("click", shuffleOnPlaylist);
+      document.querySelector(".rewind").addEventListener("click", rewindOnPlaylist);
+      document.querySelector(".play").addEventListener("click", playOrPause);
+      document.querySelector(".next").addEventListener("click", nextOnPlayList);
+      document.querySelector(".shuffle").addEventListener("click", shuffleOnPlaylist);
     </script>
   </body>
 </html>
