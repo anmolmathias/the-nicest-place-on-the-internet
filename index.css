@@ -111,3 +111,7 @@ select {
   z-index: 2;
   color: #fff;
 }
+
+.controls {
+    cursor: pointer;
+}
