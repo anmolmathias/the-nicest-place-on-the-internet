@@ -105,11 +105,13 @@ select {
   justify-content: space-between;
   z-index: 2;
   color: #fff;
+  margin: 30px;
 }
 
 .share {
   z-index: 2;
   color: #fff;
+  margin: 30px;
 }
 
 .controls {
@@ -135,6 +137,31 @@ select {
   position: absolute;
   align-items: center;
   justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.fade-out {
+	-webkit-animation: fade-out 6s ease-out forwards;
+	        animation: fade-out 6s ease-out forwards;
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .modal-content {
@@ -155,7 +182,39 @@ select {
   background-color: transparent;
   color: #fff;
   text-align: center;
+  align-items: center;
+  font-size: 48px;
+  line-height: 1;
+  gap: 30px;
+  margin-top: 160px;
 }
+
+.text-blur-out {
+	-webkit-animation: text-blur-out 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-blur-out 3s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-blur-out {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+@keyframes text-blur-out {
+  0% {
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+
 
 .close {
   width: 30px;
@@ -168,14 +227,22 @@ select {
 }
 
 .links-list {
-    list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  cursor: pointer;
 }
 
 .share {
-    display:flex;
+  display: flex;
 }
 
 .enter {
-    all: unset;
-    cursor: pointer;
+  all: unset;
+  cursor: pointer;
+  margin-top: 14px;
+  font-size: 16px;
 }
+
+
+

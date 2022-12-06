@@ -2,8 +2,10 @@ let pageReady = false;
 let isMuted = true;
 let isShuffled = false;
 const audioElement = new Audio("audio.mp3");
-var aboutOverlay = document.querySelector(".about-overlay");
-var giveOverlay = document.querySelector(".give-overlay");
+let onLoadOverlay = document.querySelector(".onLoad-overlay");
+let onLoadContent = document.querySelector(".onLoad-content");
+let aboutOverlay = document.querySelector(".about-overlay");
+let giveOverlay = document.querySelector(".give-overlay");
 var tag = document.createElement("script");
 
 tag.id = "iframe-demo";
@@ -31,11 +33,11 @@ function rewindOnPlaylist() {
 }
 function playOrPause() {
   if (player.getPlayerState() === 1) {
-    document.querySelector(".play-image").src = "assets/images/pause.png";
     player.pauseVideo();
+    document.querySelector(".play-image").src = "assets/images/pause.png";
   } else {
-    document.querySelector(".play-image").src = "assets/images/play.png";
     player.playVideo();
+    document.querySelector(".play-image").src = "assets/images/play.png";
   }
 }
 function nextOnPlayList() {
@@ -44,34 +46,39 @@ function nextOnPlayList() {
 
 function shuffleOnPlaylist() {
   if (isShuffled) {
-    document.querySelector(".shuffle-image").src = "assets/images/continue.png";
     player.setShuffle(false);
+    document.querySelector(".shuffle-image").src = "assets/images/continue.png";
   } else {
-    document.querySelector(".shuffle-image").src = "assets/images/shuffle.png";
     player.setShuffle(true);
+    document.querySelector(".shuffle-image").src = "assets/images/shuffle.png";
   }
   isShuffled = !isShuffled;
 }
 
 function muteAudio() {
   if (isMuted) {
-    document.querySelector(".mute-image").src = "assets/images/unmute.png";
     audioElement.play();
+    document.querySelector(".mute-image").src = "assets/images/unmute.png";
   } else {
-    document.querySelector(".mute-image").src = "assets/images/mute.png";
     audioElement.pause();
+    document.querySelector(".mute-image").src = "assets/images/mute.png";
   }
   isMuted = !isMuted;
 }
 
- audioElement.loop = true;
+audioElement.loop = true;
 document.querySelector(".enter").addEventListener("click", function () {
-  document.querySelector(".onLoad-overlay").style.display = "none";
   audioElement.play();
   isPaused = false;
+  onLoadOverlay.classList.add("fade-out");
+  onLoadContent.classList.add("text-blur-out");
   setTimeout(() => {
     player.playVideo();
-  }, 2000);
+  }, 500);
+  setTimeout(() => {
+    document.querySelector(".onLoad-overlay").style.display = "none";
+  }, 5000);
+
 });
 
 aboutOverlay.addEventListener("click", function () {
