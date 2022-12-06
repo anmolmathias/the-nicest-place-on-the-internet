@@ -22,8 +22,8 @@
         <footer>
           <div class="links">
             <ul>
-              <li>about</li>
-              <li>give a hug</li>
+              <li class="links-about">about</li>
+              <li class="links-give">give a hug</li>
               <li>contact</li>
             </ul>
           </div>
@@ -35,60 +35,112 @@
           </div>
         </footer>
       </div>
+      <div class="about-overlay overlay">
+        <div class="modal-content">
+          <a href="#" class="close">&#10006;</a>
+          <h1>hi.</h1>
+          <h2>welcome to the nicest place on the internet.</h2>
+          <p>
+            Having one of those days? Yeah, been there too. And sometimes, a
+            little pick-me-up is hard to come by. So come on by to turn the sad
+            into happy and the happy into a celebration. Cause this is a nice
+            place to visit on days like today.
+          </p>
+          <div class="video-container">
+            <iframe
+              src="http://www.youtube.com/embed/zG-BWw__yos?rel=0"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <p>
+            <small
+              >Like the song? It's "<a
+                href="https://itunes.apple.com/us/album/i-have-never-loved-someone/id466432429?i=466432442"
+                target="_blank"
+                >I Have Never Loved Someone</a
+              >" by My Brightest Diamond. We used the audio from La
+              Blogotheque's Take Away Show found
+              <a
+                href="http://www.youtube.com/watch?v=u1p9kj-odnU"
+                target="_blank"
+                >here</a
+              >. Created by
+              <a href="http://jeffmade.me/" target="_blank">Jeff</a> &
+              <a href="http://laurenperlow.com/" target="_blank">Lauren</a>.
+              Developed by
+              <a href="http://www.kennycrosby.com/" target="_blank">Kenny</a
+              >.</small
+            >
+          </p>
+          <hr />
+          <p>
+            <small
+              >TheNicestPlace.net is a reboot of TheNicestPlaceOnTheInter.net, a
+              website which has brought me so much peace and comfort in times of
+              need. The site has been offline for a few years now, but in light
+              of current events and widespread self-isolation, I felt it
+              valuable to restore this website, replicated from its latest
+              source code from
+              <a
+                href="http://web.archive.org/web/20170219045655/http://thenicestplaceontheinter.net/"
+                target="_blank"
+                >archive.org</a
+              >, and updated slightly for modern web browsers. I take no credit
+              for this piece of living art, but I am glad to be able to maintain
+              it for all to enjoy.<br />
+              - Peace and love &hearts;
+              <a href="mailto:thenicestplace@tobybenjamin.com" target="_blank"
+                >Toby</a
+              ></small
+            >
+          </p>
+        </div>
+      </div>
+      <div class="give-overlay overlay">
+        <div class="modal-content">
+          <a href="#" class="close">&#10006;</a>
+          <h1>bring it in.</h1>
+          <h2>three easy steps</h2>
+          <h3>step one.</h3>
+          <p>
+            Record a hug and share the love. Turn on your webcam or any camera
+            and just give it a good squeeze. We like people, animals, zombies,
+            astronauts... really anything.
+          </p>
+          <h3>step two.</h3>
+          <p>
+            Upload your hug to YouTube and
+            <a href="mailto:thenicestplace@tobybenjamin.com">email me</a> a link
+            so I can add it to the
+            <a
+              href="https://www.youtube.com/playlist?list=PLUWjLblS8gxH8q1xMC4GmfFU83gK7yd07"
+              target="_blank"
+              >YouTube playlist</a
+            >. Or send us a download link from a site like
+            <a href="https://www.wetransfer.com/" target="_blank">WeTransfer</a>
+            or
+            <a href="https://www.yousendit.com/" target="_blank">YouSendIt</a>
+            and we can add it that way too.
+          </p>
+
+          <h3>step three.</h3>
+          <p>
+            In the email, tell us about yourself. Your name and your location so
+            we know where in the world you're reppin'.
+          </p>
+          <hr />
+          <p>
+            2020: New submissions can now be added to a playlist containing all
+            the original videos.
+          </p>
+        </div>
+      </div>
       <div class="share">
         <a href="#">Twitter</a>
         <a href="#">Facebook</a>
       </div>
     </div>
-    <script type="text/javascript">
-      var tag = document.createElement("script");
-      tag.id = "iframe-demo";
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player("player", {
-          events: {
-            onReady: onPlayerReady,
-            onError: onPlayerError,
-          },
-        });
-      }
-      function onPlayerReady(event) {
-        event.target.playVideo();
-      }
-      function onPlayerError(event) {
-        console.log(event.target.data);
-      }
-      function rewindOnPlaylist() {
-        player.previousVideo();
-      }
-      function playOrPause() {
-        if (player.getPlayerState() === 1) {
-          player.pauseVideo();
-        } else {
-          player.playVideo();
-        }
-      }
-      function nextOnPlayList() {
-        player.nextVideo();
-      }
-      var isShuffled = false;
-      function shuffleOnPlaylist() {
-        if (isShuffled) {
-          player.setShuffle(false);
-        } else {
-          player.setShuffle(true);
-        }
-        isShuffled = !isShuffled;
-      }
-
-      document.querySelector(".rewind").addEventListener("click", rewindOnPlaylist);
-      document.querySelector(".play").addEventListener("click", playOrPause);
-      document.querySelector(".next").addEventListener("click", nextOnPlayList);
-      document.querySelector(".shuffle").addEventListener("click", shuffleOnPlaylist);
-    </script>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
