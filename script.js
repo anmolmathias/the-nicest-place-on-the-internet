@@ -80,7 +80,7 @@ document.querySelector(".enter").addEventListener("click", function () {
     player.playVideo();
   }, 500);
   setTimeout(() => {
-    document.querySelector(".onLoad-overlay").style.display = "none";
+    onLoadOverlay.style.display = "none";
   }, 5000);
 });
 
