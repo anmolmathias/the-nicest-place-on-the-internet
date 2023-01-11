@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Helvetica";
+  font-family: "HelveticaRoman";
   src: url("assets/fonts/helvetica_roman-webfont.woff2") format("woff2"),
     url("assets/fonts/helvetica_roman-webfont.woff") format("woff");
   font-weight: normal;
@@ -43,7 +43,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   overflow: hidden;
-  font-family: "Helvetica", Arial, sans-serif;
+  font-family: "HelveticaRoman", Arial, sans-serif;
 }
 
 /* A elements that don't have a class get default styles */
@@ -129,16 +129,35 @@ select {
 
 .logo {
   margin-bottom: 20px;
+  filter: drop-shadow(rgb(0 0 0 / 10%) 0px 2px 0px);
 }
 
 .share {
   z-index: 2;
   color: #fff;
   margin: 30px;
+  display: flex;
+  align-self: flex-start;
+  gap: 19px;
+  box-shadow: (rgb(0 0 0 / 10%) 0px 2px 0px);
+}
+
+.three-d-box {
+  box-shadow: 0px 2px 0px rgb(0 0 0 / 10%);
+}
+
+.share a {
+  background-color: #fff;
+  transition: border-radius 250ms;
+}
+
+.share a:hover {
+  border-radius: 50%;
 }
 
 .controls {
   display: flex;
+  filter: drop-shadow(rgb(0 0 0 / 10%) 0px 2px 0px);
 }
 
 .controls div {
@@ -191,7 +210,7 @@ select {
   }
 }
 
-.about-overlay h2 {
+.modal-content h2 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   margin-bottom: 5px;
 }
@@ -226,7 +245,7 @@ select {
 }
 
 .about-overlay .song-credits {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .modal-content {
@@ -236,7 +255,11 @@ select {
   background-color: #fff;
   color: #000;
   text-align: left;
-  padding: 30px 30px 70px;
+  padding: 30px;
+}
+
+.modal-content h1 {
+  font-size: 24px;
 }
 
 .onLoad-content {
@@ -287,6 +310,7 @@ select {
   background-color: transparent;
   border: none;
   margin-bottom: 10px;
+  text-decoration: none;
 }
 
 .links {
@@ -305,13 +329,44 @@ select {
   cursor: pointer;
 }
 
-.share {
-  display: flex;
-}
-
 .enter {
   all: unset;
   cursor: pointer;
   margin-top: 14px;
   font-size: 16px;
+}
+
+.three-d {
+  text-shadow: rgb(0 0 0 / 10%) 0px 2px 0px;
+}
+
+@media screen and (max-width: 576px) {
+  .onLoad-content {
+    font-size: 36px;
+    margin-top: 0;
+  }
+  .onLoad-content img {
+    width: 88px;
+  }
+  .logo-wrapper {
+    display: flex;
+    gap: 10px;
+  }
+  .logo-wrapper h1 {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .logo {
+    margin-bottom: 16px;
+    width: 62px;
+  }
+  .links {
+    font-size: 16px;
+    line-height: 24px;
+    display: none;
+  }
+  .player {
+    top: -8%;
+    height: calc(100% + 16%);
+  }
 }
