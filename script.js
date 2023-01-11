@@ -35,10 +35,10 @@ function rewindOnPlaylist() {
 function playOrPause() {
   if (player.getPlayerState() === 1) {
     player.pauseVideo();
-    document.querySelector(".play-image").src = "assets/images/pause.png";
+    document.querySelector(".play-image").src = "assets/images/play.png";
   } else {
     player.playVideo();
-    document.querySelector(".play-image").src = "assets/images/play.png";
+    document.querySelector(".play-image").src = "assets/images/pause.png";
   }
 }
 function nextOnPlayList() {

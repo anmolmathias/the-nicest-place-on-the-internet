@@ -137,6 +137,7 @@ select {
   color: #fff;
   margin: 30px;
   display: flex;
+  visibility: hidden;
   align-self: flex-start;
   gap: 19px;
   box-shadow: (rgb(0 0 0 / 10%) 0px 2px 0px);
